@@ -1,6 +1,6 @@
 """Per-question Hit and F1 using the substring-match metric defined in
 ``src/reasoning/repair_macro_guarded_v10.py``. This is the metric whose
-aggregates match the published WebQSP (92.13 / 77.86) and CWQ (66.24 / 53.77)
+aggregates match the published WebQSP (89.51 / 76.39) and CWQ (66.27 / 53.78)
 numbers, verified against ``results/webqsp_predictions.json`` and
 ``results/cwq_predictions.json``.
 """

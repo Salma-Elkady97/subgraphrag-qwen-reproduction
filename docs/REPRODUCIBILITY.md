@@ -7,17 +7,17 @@ The committed per-question logs and prediction files reproduce Table 2 exactly.
 ```bash
 python -m src.eval.score    results/webqsp_predictions.json
 python -m src.eval.score    results/cwq_predictions.json
-python -m src.eval.bootstrap_ci results/webqsp_per_q.csv 1639 92.13 77.86
-python -m src.eval.bootstrap_ci results/cwq_per_q.csv    3531 66.24 53.77
+python -m src.eval.bootstrap_ci results/webqsp_per_q.csv 1639 89.51 76.39
+python -m src.eval.bootstrap_ci results/cwq_per_q.csv    3531 66.27 53.78
 ```
 
 Expected output:
 
 ```
-results/webqsp_predictions.json: n=1639, Hit=92.1293, Macro-F1=77.8636
-results/cwq_predictions.json:    n=3531, Hit=66.2419, Macro-F1=53.7733
-results/webqsp_per_q.csv: Hit=92.13 [90.85, 93.41] | F1=77.86 [76.15, 79.52]
-results/cwq_per_q.csv:    Hit=66.24 [64.66, 67.77] | F1=53.77 [52.36, 55.24]
+results/webqsp_predictions.json: n=1639, Hit=92.1293, Macro-F1=76.3936
+results/cwq_predictions.json:    n=3531, Hit=66.2719, Macro-F1=53.7833
+results/webqsp_per_q.csv: Hit=89.51 [87.98, 90.97] | F1=76.39 [74.63, 78.10]
+results/cwq_per_q.csv:    Hit=66.27 [64.71, 67.83] | F1=53.78 [52.34, 55.20]
 ```
 
 ## Full end-to-end re-run on a single A100

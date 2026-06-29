@@ -12,21 +12,21 @@ NVIDIA A100-SXM4-80GB.
 | SubgraphRAG + Llama3.1-70B            | Open-weight     | 86.24      | 74.70     | 57.89   | 51.78  |
 | SubgraphRAG + GPT-4o-mini (500)       | Proprietary API | 91.22      | 77.67     | 64.97   | 55.41  |
 | SubgraphRAG + GPT-4o                  | Proprietary API | 90.91      | 78.24     | 67.49   | 59.42  |
-| **This framework**                    | **Open-weight** | **92.13 [90.85, 93.41]** | **77.86 [76.15, 79.52]** | **66.24 [64.66, 67.77]** | **53.77 [52.36, 55.24]** |
+| **This framework**                    | **Open-weight** | **89.51 [87.98, 90.97]** | **76.39 [74.63, 78.10]** | **66.27 [64.71, 67.83]** | **53.78 [52.34, 55.20]** |
 
 95% confidence intervals are 10,000-replicate non-parametric bootstrap (seed = 20260603).
 
 ## Quick start
 
 ```bash
-git clone https://github.com/<USER>/<REPO>.git
-cd <REPO>
+git clone https://github.com/Salma-Elkady97/subgraphrag-qwen-reproduction.git
+cd subgraphrag-qwen-reproduction
 conda env create -f environment.yml && conda activate subgraphrag-qwen
 
 # Reproduce the published Table 2 numbers from the committed per-question logs
 python -m src.eval.score results/webqsp_predictions.json results/cwq_predictions.json
-python -m src.eval.bootstrap_ci results/webqsp_per_q.csv 1639 92.13 77.86
-python -m src.eval.bootstrap_ci results/cwq_per_q.csv    3531 66.24 53.77
+python -m src.eval.bootstrap_ci results/webqsp_per_q.csv 1639 89.51 76.39
+python -m src.eval.bootstrap_ci results/cwq_per_q.csv    3531 66.27 53.78
 ```
 
 The two `*_per_q.csv` files and the two `*_predictions.json` files in `results/`
@@ -44,14 +44,18 @@ See [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md). High-level order:
    `retrieval_result.pth`
 4. **Foundation data**: `python -m src.reasoning.build_train_foundation`,
    `prepare_cwq_reasoning`, `build_cwq_train_val_foundation`
-5. **Reasoning inference**: `python -m src.reasoning.main -d webqsp -m Qwen/Qwen2.5-72B-Instruct-AWQ -p <foundation.pth>`
-6. **Postprocessing (WebQSP only)**: chain of
-   `repair_safe_v2.py → … → repair_safe_v8.py → repair_macro_guarded_v10.py`
-7. **Evaluation**: `python -m src.reasoning.evaluate_results` (Hit) and
+5. **Reasoning inference**: `python -m src.reasoning.main -d webqsp -m Qwen/Qwen2.5-72B-Instruct-AWQ -p <foundation.pth>` produces `baseline_results.jsonl`. **This is the file whose aggregate is the blind-test result reported in Table 2 of the paper (WebQSP 89.51 / 76.39, CWQ 66.27 / 53.78). No postprocessing is applied for the published numbers.**
+6. **Evaluation**: `python -m src.reasoning.evaluate_results` (Hit) and
    `evaluate_results_corrected` (F1) from the SubgraphRAG eval suite.
 
-CWQ uses **no postprocessing** — the published 66.24 / 53.77 numbers come
-directly from step 5.
+CWQ uses **no postprocessing**. WebQSP also uses no postprocessing for the
+blind-test numbers reported in the paper. A separate chain of
+`repair_safe_v2.py → … → repair_safe_v8.py → repair_macro_guarded_v10.py`
+exists in `src/reasoning/` and was used during development to produce an
+oracle-style result of 92.13 / 77.86 on WebQSP, but those scripts read the
+test-set gold answers at runtime and their outputs are therefore NOT reported
+as blind-evaluation results. See `docs/KNOWN_ISSUES.md` for a full discussion
+of this distinction.
 
 ## Hardware
 

@@ -7,5 +7,5 @@ cd "$ROOT"
 
 python -m src.eval.score    results/webqsp_predictions.json
 python -m src.eval.score    results/cwq_predictions.json
-python -m src.eval.bootstrap_ci results/webqsp_per_q.csv 1639 92.13 77.86
-python -m src.eval.bootstrap_ci results/cwq_per_q.csv    3531 66.24 53.77
+python -m src.eval.bootstrap_ci results/webqsp_per_q.csv 1639 89.51 76.39
+python -m src.eval.bootstrap_ci results/cwq_per_q.csv    3531 66.27 53.78

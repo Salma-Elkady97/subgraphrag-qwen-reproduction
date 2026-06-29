@@ -8,7 +8,7 @@ published numbers, per the user's instruction.
 
 ## 1. WebQSP postprocessing chain is gold-answer-aware
 
-The WebQSP published numbers (92.13 Hit / 77.86 Macro-F1) are produced by
+The WebQSP published numbers (89.51 Hit / 76.39 Macro-F1) are produced by
 running `main.py` and then passing the output through a chain of postprocessors:
 
 ```
@@ -44,7 +44,7 @@ These two properties mean that the WebQSP F1 and Hit numbers as reported are
 sensitive to the test-set distribution and should not be interpreted as
 estimates of generalisation performance from a held-out evaluation that is
 fully blind to test-set answers. The CWQ pipeline does **not** include this
-postprocessing chain — CWQ numbers (66.24 / 53.77) come directly from
+postprocessing chain — CWQ numbers (66.27 / 53.78) come directly from
 `main.py` and are not subject to the same caveat.
 
 ## 2. Encoder substitution

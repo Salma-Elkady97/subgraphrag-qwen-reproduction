@@ -7,7 +7,7 @@
 All changes below are STRUCTURAL ONLY. No algorithm, prompt, hyperparameter, or
 numeric value has been modified. Verification against the original
 `results/*_per_q.csv` and `results/*_predictions.json` files reproduces the
-published Table 2 numbers (WebQSP 92.13 / 77.86, CWQ 66.24 / 53.77) exactly.
+published Table 2 numbers (WebQSP 89.51 / 76.39, CWQ 66.27 / 53.78) exactly.
 
 #### Added
 - Top-level metadata: `README.md`, `LICENSE` (MIT), `CITATION.cff`,

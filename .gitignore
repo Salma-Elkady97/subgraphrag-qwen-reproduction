@@ -59,3 +59,6 @@ secrets.yaml
 !results/cwq_per_q.csv
 !results/webqsp_predictions.json
 !results/cwq_predictions.json
+
+# Embedded distribution archives (regenerated externally)
+*.zip

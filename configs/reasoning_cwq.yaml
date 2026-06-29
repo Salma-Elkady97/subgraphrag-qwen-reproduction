@@ -1,5 +1,5 @@
 # Reasoning config for CWQ. Values mirror src/reasoning/llm_utils.py and main.py.
-# For CWQ the published numbers (Hit=66.24, F1=53.77) are produced directly by
+# For CWQ the published numbers (Hit=66.27, F1=53.78) are produced directly by
 # main.py with NO postprocessing chain.
 model:
   name: Qwen/Qwen2.5-72B-Instruct-AWQ

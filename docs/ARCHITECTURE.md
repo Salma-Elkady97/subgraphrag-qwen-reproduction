@@ -51,7 +51,7 @@ build_train_foundation.py            build_cwq_train_val_foundation.py
                                  │
                                  ▼
                        baseline_results.jsonl
-                       (CWQ: this is the final output → 66.24 / 53.77)
+                       (CWQ: this is the final output → 66.27 / 53.78)
                                  │
                                  │  (WebQSP only)
                                  ▼
@@ -60,7 +60,7 @@ build_train_foundation.py            build_cwq_train_val_foundation.py
                                  ▼
                   repair_macro_guarded_v10.py   ← FINAL for WebQSP
                   → baseline_results_macro_guarded_v10.jsonl
-                  → 92.13 Hit / 77.86 Macro-F1
+                  → 89.51 Hit / 76.39 Macro-F1
                                  │
                                  ▼
                   evaluate_results.py (Hit) + evaluate_results_corrected.py (F1)

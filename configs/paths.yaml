@@ -1,0 +1,22 @@
+# Path map used by src/utils/paths.resolve.
+# `${repo_root}` is auto-substituted with the absolute path of the repo root.
+# Override any value to point at the actual location on your machine.
+paths:
+  # ---- root data area (created by retrieval setup) ----
+  data_root: ${repo_root}/data
+
+  # ---- WebQSP foundation files (built by build_train_foundation.py) ----
+  webqsp_foundation: ${repo_root}/data/webqsp/webqsp_SOTA_READY.pth
+  webqsp_train_foundation: ${repo_root}/data/webqsp/webqsp_TRAIN_SOTA_READY.pth
+  webqsp_processed: ${repo_root}/data/webqsp/processed
+  webqsp_triple_scores: ${repo_root}/data/webqsp/triple_scores
+
+  # ---- WebQSP outputs ----
+  webqsp_base: ${repo_root}/outputs/KGQA/webqsp/Baseline
+  webqsp_pathbased: ${repo_root}/outputs/KGQA/webqsp/PathBased
+
+  # ---- CWQ files ----
+  cwq_data_root: ${repo_root}/data/cwq
+  cwq_results_dir: ${repo_root}/outputs/cwq
+  cwq_retrieval_result: ${repo_root}/outputs/cwq/cwq_retrieval_result.pth
+  cwq_foundation: ${repo_root}/outputs/cwq/cwq_SOTA_READY.pth

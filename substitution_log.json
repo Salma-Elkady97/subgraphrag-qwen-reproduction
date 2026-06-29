@@ -1,0 +1,52 @@
+{
+  "path_substitutions_per_file": [
+    {
+      "file": "src/reasoning/build_train_foundation.py",
+      "count": 3
+    },
+    {
+      "file": "src/reasoning/build_cwq_train_val_foundation.py",
+      "count": 2
+    },
+    {
+      "file": "src/reasoning/prepare_cwq_reasoning.py",
+      "count": 1
+    },
+    {
+      "file": "src/reasoning/postprocess_kgqa_v3_safe.py",
+      "count": 3
+    },
+    {
+      "file": "src/reasoning/repair_safe_v2.py",
+      "count": 3
+    },
+    {
+      "file": "src/reasoning/repair_safe_v3.py",
+      "count": 3
+    },
+    {
+      "file": "src/reasoning/repair_safe_v4.py",
+      "count": 3
+    },
+    {
+      "file": "src/reasoning/repair_safe_v5.py",
+      "count": 3
+    },
+    {
+      "file": "src/reasoning/repair_safe_v6.py",
+      "count": 3
+    },
+    {
+      "file": "src/reasoning/repair_safe_v7.py",
+      "count": 3
+    },
+    {
+      "file": "src/reasoning/repair_safe_v8.py",
+      "count": 3
+    },
+    {
+      "file": "src/reasoning/repair_macro_guarded_v10.py",
+      "count": 3
+    }
+  ]
+}

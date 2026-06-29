@@ -1,0 +1,61 @@
+# Caches / bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.eggs/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Virtualenvs / Conda
+.env
+.venv/
+venv/
+env/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Datasets (downloaded, not committed)
+data/
+data_files/
+rmanluo/
+
+# Model checkpoints
+*.pth
+*.bin
+*.safetensors
+*.ckpt
+
+# Embeddings cache
+*.pkl
+*.npy
+
+# Reasoning / retrieval outputs (regenerated from scripts)
+outputs/
+results/KGQA/
+
+# Trackers
+wandb/
+mlruns/
+lightning_logs/
+
+# Notebooks scratch
+notebooks/*.ipynb
+!notebooks/colab_inference_demo.ipynb
+
+# Local secrets
+*.env
+secrets.yaml
+.api_keys
+
+# Keep tiny committed artefacts that back Table 2
+!results/webqsp_per_q.csv
+!results/cwq_per_q.csv
+!results/webqsp_predictions.json
+!results/cwq_predictions.json

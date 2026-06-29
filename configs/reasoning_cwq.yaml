@@ -1,0 +1,40 @@
+# Reasoning config for CWQ. Values mirror src/reasoning/llm_utils.py and main.py.
+# For CWQ the published numbers (Hit=66.24, F1=53.77) are produced directly by
+# main.py with NO postprocessing chain.
+model:
+  name: Qwen/Qwen2.5-72B-Instruct-AWQ
+  quantization: awq_marlin
+  dtype: float16
+  trust_remote_code: true
+  tensor_parallel_size: 1
+  gpu_memory_utilization: 0.82
+  max_model_len: 4096
+  enforce_eager: false
+prompt:
+  max_input_tokens: 3800
+  context_split:
+    keep_start_fraction: 0.78
+  facts:
+    by_question_length:
+      "<=10":  {max_facts: 95, max_candidates: 70}
+      "<=18":  {max_facts: 80, max_candidates: 60}
+      "<=28":  {max_facts: 65, max_candidates: 50}
+      ">28":   {max_facts: 50, max_candidates: 38}
+  scan_multiplier: 3
+  drop_metadata_relations: ["type.object.name"]
+decoding:
+  temperatures: [0.0, 0.15, 0.3]
+  top_p: 0.90
+  max_tokens: 64
+  repetition_penalty: 1.03
+  stop:
+    - "<|im_end|>"
+    - "\nQuestion:"
+    - "\nFacts:"
+    - "\nCandidate"
+postprocess:
+  chain: []
+  final_output: ${paths.cwq_results_dir}/baseline_results_cwq_66_backup.jsonl
+evaluation:
+  hit_script: src/reasoning/evaluate_results.py
+  f1_script:  src/reasoning/evaluate_results_corrected.py

@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite both the original SubgraphRAG paper and this reproduction."
+title: "Efficient and Reproducible Graph-RAG with Open-Source LLMs for Multi-Hop KGQA"
+authors:
+  - family-names: "El Kady"
+    given-names: "Salma"
+version: "1.0.0"
+date-released: "2026-06-20"
+license: MIT
+keywords:
+  - knowledge-graph-question-answering
+  - graph-rag
+  - retrieval-augmented-generation
+  - subgraphrag
+  - qwen
+references:
+  - type: article
+    title: "Simple is Effective: The Roles of Graphs and Large Language Models in Knowledge-Graph-Based Retrieval-Augmented Generation"
+    authors:
+      - family-names: "Li"
+        given-names: "Mufei"
+      - family-names: "Miao"
+        given-names: "Siqi"
+      - family-names: "Li"
+        given-names: "Pan"
+    year: 2025
+    journal: "International Conference on Learning Representations"
